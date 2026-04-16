@@ -1,0 +1,784 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Middle East Church Aid | Stand with Beirut</title>
+  <meta name="description" content="Help restore Saint Peter & Saint Paul Cathedral and Saint Ephrem Syriac Orthodox Church in Beirut. Support a 2,000-year-old living Christian community." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Stand with Beirut â€” Help Rebuild Our Churches" />
+  <meta property="og:description" content="Support the Syriac Orthodox Archdiocese of Beirut. Two historic churches need urgent restoration. Every donation keeps a 2,000-year-old faith alive." />
+  <meta property="og:image" content="https://middleeastchurchaid.com/images/cathedral-interior.jpg" />
+  <meta property="og:url" content="https://middleeastchurchaid.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root {
+      --bg: #f4f1ec;
+      --text: #1a1a2e;
+      --muted: #4a5568;
+      --primary: #1a3a5c;
+      --primary-dark: #0f2540;
+      --gold: #c4973a;
+      --gold-light: #f5dfa0;
+      --white: #ffffff;
+      --card: #fdfcf9;
+      --border: #d6cfc4;
+      --shadow: 0 8px 32px rgba(26,58,92,0.10);
+      --max: 1140px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 18px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--primary-dark);
+      color: var(--white);
+      font-size: 16px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .topbar strong { color: var(--gold-light); }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,253,249,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 20px;
+    }
+    .brand { font-weight: 700; font-size: 22px; letter-spacing: 0.3px; color: var(--primary); }
+    .nav-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; font-size: 17px; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 17px;
+    }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-secondary { background: transparent; color: var(--primary); border-color: var(--primary); }
+    .btn-secondary:hover { background: rgba(109,31,31,0.06); }
+    .btn-gold { background: var(--gold); color: var(--white); }
+    .btn-gold:hover { background: #9a7640; }
+
+    .hero {
+      background:
+        linear-gradient(rgba(28, 15, 10, 0.62), rgba(28, 15, 10, 0.62)),
+        url('images/church-exterior.jpg') center/cover;
+      color: var(--white);
+      padding: 100px 0 90px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    h1, h2, h3 { line-height: 1.15; margin: 0 0 18px; }
+    h1 { font-size: clamp(40px, 5.5vw, 64px); max-width: 800px; }
+    .hero p { font-size: 21px; max-width: 680px; color: #f0e8e0; margin: 0 0 12px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+
+    .goal-card {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 24px;
+      padding: 28px;
+    }
+    .goal-card h3 { font-size: 18px; margin-bottom: 6px; color: var(--gold-light); }
+    .goal-amount { font-size: 36px; font-weight: 700; margin: 0 0 4px; }
+    .goal-label { font-size: 13px; color: rgba(255,255,255,0.65); margin: 0 0 18px; }
+    .progress-track {
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      height: 10px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      background: var(--gold);
+      height: 100%;
+      border-radius: 999px;
+      width: 0;
+      transition: width 1.4s ease;
+    }
+    .progress-meta { display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 18px; }
+    .goal-card .small { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0; }
+
+    .section { padding: 80px 0; }
+    .section-alt { background: #fffaf4; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-dark { background: var(--primary-dark); color: var(--white); }
+
+    .section-title { max-width: 780px; margin-bottom: 38px; }
+    .section-title h2 { font-size: clamp(30px, 4.5vw, 48px); color: var(--primary); }
+    .section-dark .section-title h2 { color: var(--gold-light); }
+    .section-title p { color: var(--muted); font-size: 20px; margin: 0; }
+    .section-dark .section-title p { color: rgba(255,255,255,0.7); }
+
+    .blockquote {
+      border-left: 4px solid var(--gold);
+      padding: 20px 24px;
+      margin: 0;
+      background: var(--card);
+      border-radius: 0 16px 16px 0;
+    }
+    .blockquote p { font-size: 21px; font-style: italic; color: var(--text); margin: 0 0 12px; line-height: 1.75; }
+    .blockquote cite { font-size: 16px; color: var(--muted); font-style: normal; font-weight: 700; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 { font-size: 22px; color: var(--primary); }
+    .card p { color: var(--muted); }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+
+    .church-box {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .church-box h3 { font-size: 22px; color: var(--primary); }
+
+    .bullet-list { padding-left: 20px; margin: 0; }
+    .bullet-list li { margin-bottom: 10px; color: var(--muted); }
+
+    .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .stat-item { text-align: center; padding: 24px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; }
+    .stat-number { font-size: 40px; font-weight: 700; color: var(--primary); line-height: 1; margin-bottom: 6px; }
+    .stat-desc { font-size: 16px; color: var(--muted); }
+
+    .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .impact-item { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 22px; text-align: center; box-shadow: var(--shadow); }
+    .impact-item strong { display: block; font-size: 22px; color: var(--primary); margin-bottom: 6px; }
+
+    .repair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .repair-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .repair-card h4 { color: var(--gold-light); font-size: 19px; margin: 0 0 12px; }
+    .repair-card ul { padding-left: 18px; margin: 0; }
+    .repair-card li { color: rgba(255,255,255,0.80); font-size: 17px; margin-bottom: 8px; line-height: 1.6; }
+    .repair-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .tag-urgent { background: rgba(220,80,80,0.25); color: #ffaaaa; }
+    .tag-important { background: rgba(176,138,74,0.3); color: var(--gold-light); }
+    .tag-community { background: rgba(80,160,120,0.25); color: #a0e0c0; }
+
+    .bishop-grid { display: grid; grid-template-columns: 340px 1fr; gap: 40px; align-items: start; }
+
+    .donate-box {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      padding: 40px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+    .donate-box h2 { font-size: clamp(26px, 3.5vw, 40px); margin-bottom: 14px; }
+    .donate-box > p { color: rgba(255,255,255,0.85); font-size: 19px; margin: 0 0 28px; }
+    .donation-tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+    .tier {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 22px 18px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .tier:hover { background: rgba(255,255,255,0.16); border-color: var(--gold); }
+    .tier h3 { color: var(--gold-light); font-size: 28px; margin-bottom: 8px; }
+    .tier p { color: rgba(255,255,255,0.75); font-size: 16px; margin: 0; line-height: 1.5; }
+
+    .share-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; align-items: center; }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      background: rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .share-btn:hover { background: rgba(255,255,255,0.2); }
+
+    .transparency-bar { margin: 28px 0; }
+    .t-row { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .t-label { font-size: 16px; color: var(--muted); min-width: 220px; }
+    .t-track { flex: 1; background: var(--border); border-radius: 999px; height: 10px; overflow: hidden; }
+    .t-fill { height: 100%; border-radius: 999px; background: var(--primary); }
+    .t-pct { font-size: 16px; font-weight: 700; color: var(--primary); min-width: 40px; text-align: right; }
+
+    .signup-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .signup-box h3 { color: var(--primary); margin-bottom: 8px; }
+    .signup-box p { color: var(--muted); margin: 0 0 20px; }
+    .signup-form { display: flex; gap: 10px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .signup-form input {
+      flex: 1;
+      min-width: 200px;
+      padding: 12px 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 15px;
+      font-family: inherit;
+      background: var(--white);
+      color: var(--text);
+    }
+    .signup-form input:focus { outline: none; border-color: var(--primary); }
+
+    footer { background: #1a1411; color: #ede4dc; padding: 40px 0; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+    .footer-brand { font-size: 22px; font-weight: 700; color: #f0ded0; margin-bottom: 6px; }
+    .footer-section h4 { font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; }
+    .footer-section a { display: block; font-size: 16px; color: #c9bfb4; margin-bottom: 8px; }
+    .footer-section a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 28px; padding-top: 20px; font-size: 14px; color: #7a7068; text-align: center; }
+    .small { font-size: 15px; color: #c9bfb4; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .two-col, .bishop-grid, .repair-grid { grid-template-columns: 1fr; }
+      .cards, .stat-row, .impact-grid, .donation-tiers { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .nav { flex-direction: column; align-items: flex-start; }
+      .nav-links { gap: 12px; }
+      .hero { padding: 70px 0 56px; }
+      .cards, .stat-row, .impact-grid, .donation-tiers { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <strong>Emergency Appeal:</strong> Help restore two historic Syriac Orthodox churches in Beirut &mdash; $250,000 goal
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Middle East Church Aid</div>
+      <nav class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#churches">Churches</a>
+        <a href="#needs">Restoration</a>
+        <a href="#bishop">Bishop's Message</a>
+        <a href="#video">Video</a>
+        <a href="#donate">Donate</a>
+        <a class="btn btn-primary" href="#donate">Give Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Stand with Beirut</span>
+          <h1>Help Rebuild Our Churches and Keep the Faith Alive</h1>
+          <p>Since the dawn of Christianity, the Syriac Orthodox Church has preserved the living faith in the land where it began â€” in the very language spoken by Christ. In Beirut, two historic churches stand at the heart of that witness. They need your help.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#donate">Donate Now</a>
+            <a class="btn btn-secondary" style="border-color:rgba(255,255,255,0.5);color:white;" href="#mission">Learn More</a>
+          </div>
+        </div>
+        <aside class="goal-card">
+          <h3>Emergency Restoration Campaign</h3>
+          <div class="goal-amount">$250,000</div>
+          <div class="goal-label">Fundraising goal</div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-meta">
+            <span>Help us reach our goal</span>
+            <span>$250,000 target</span>
+          </div>
+          <a class="btn btn-gold" href="#donate" style="width:100%;text-align:center;display:block;padding:13px;">Donate Now</a>
+          <p class="small" style="margin-top:12px;">Processed securely through Zeffy. Every dollar reaches the church.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section" style="padding:52px 0;">
+      <div class="container">
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="stat-number">2,000+</div>
+            <div class="stat-desc">Years of Syriac Christian history</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">6M</div>
+            <div class="stat-desc">Syriac Orthodox faithful worldwide</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">2</div>
+            <div class="stat-desc">Churches urgently needing restoration</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">1931</div>
+            <div class="stat-desc">Year the Cathedral was first built</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section id="mission" class="section section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why This Mission Matters</h2>
+          <p>Christianity was born in the Middle East. The Syriac Orthodox Church has preserved it â€” in the language of Christ â€” for two thousand years.</p>
+        </div>
+        <div class="two-col">
+          <div>
+            <div class="church-box" style="margin-bottom:22px;">
+              <p style="font-size:17px;margin:0 0 14px;">The Syriac Arameans are the direct descendants of the indigenous people of Syria, Lebanon, Palestine, and Mesopotamia. When Christianity dawned, they were among the very first to receive it â€” founding their church in Antioch, the city where, according to Acts 11:26, <em>"the disciples were first called Christians."</em></p>
+              <p style="font-size:17px;margin:0;">For two millennia, they have glorified God in the sacred Syriac language â€” the language spoken by Christ and the Apostles â€” which remains their liturgical tongue to this day. Their church has endured persecutions, genocides, wars, and displacement, and yet it stands.</p>
+            </div>
+            <div class="church-box">
+              <h3>The community in Beirut</h3>
+              <p style="color:var(--muted);margin:0 0 10px;">The Syriac Orthodox community in Beirut traces its modern roots to survivors of the <strong>Sayfo genocide of 1915</strong>, who fled from Tur Abdin, Mardin, Urfa, and Diyarbakir. From fewer than 30 families in 1920, the community grew to nearly 400 families by 1921, leading to the formal establishment of the Archdiocese in 1922.</p>
+              <p style="color:var(--muted);margin:0;">Today, despite the Lebanese civil war, the 2020 Beirut Port explosion, economic collapse, and new conflict, this community continues to pray, serve, and witness.</p>
+            </div>
+          </div>
+          <div>
+            <blockquote class="blockquote" style="margin-bottom:22px;">
+              <p>"Your generosity will not only help restore a building but will also strengthen a living community of faith that continues to pray, serve, and bring hope to many people."</p>
+              <cite>â€” His Eminence Bishop Mor Clemis Daniel Malak Kourieh</cite>
+            </blockquote>
+            <div class="church-box">
+              <h3>Why outside support is needed</h3>
+              <ul class="bullet-list">
+                <li>The <strong>2020 Beirut Port explosion</strong> caused significant structural damage to both church complexes.</li>
+                <li>Lebanon's <strong>severe economic collapse</strong> makes it impossible for the local community to fund restoration alone.</li>
+                <li>Critical construction has been <strong>unfinished since 2019</strong> due to the economic crisis.</li>
+                <li>Recent conflict has brought <strong>new and urgent repair needs</strong> on top of existing damage.</li>
+                <li>Your support sustains a <strong>living Church</strong>, not just a physical building.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHURCHES -->
+    <section id="churches" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>The Churches We Are Supporting</h2>
+          <p>These are not monuments. They are living centers of prayer, community, and hope â€” where families gather, children learn, and faith is passed from one generation to the next.</p>
+        </div>
+        <div class="two-col">
+          <article class="card">
+            <img src="images/cathedral-interior.jpg" alt="Saint Peter and Saint Paul Cathedral interior" style="border-radius:16px;margin-bottom:18px;"/>
+            <h3>Saint Peter &amp; Saint Paul Cathedral</h3>
+            <p style="margin:4px 0 12px;"><strong>Msaytbeh, Beirut &mdash; Est. 1931</strong></p>
+            <p>Originally inaugurated in 1931, this cathedral has served as the spiritual anchor of the Syriac Orthodox community for nearly a century. Strategically located in Msaytbeh, it hosts major liturgical celebrations, pastoral services, and community gatherings for the entire Archdiocese.</p>
+            <p>The cathedral endured severe damage during the Lebanese civil war (1981â€“1982), was restored in 2003, and now faces urgent new needs â€” including interior restoration, facility maintenance, and rehabilitation of the community cemetery at Ramlet El Baida.</p>
+          </article>
+          <article class="card">
+            <img src="images/st-ephrem-exterior.jpg" alt="Saint Ephrem Church exterior" style="border-radius:16px;margin-bottom:18px;"/>
+            <h3>Saint Ephrem Syriac Orthodox Church</h3>
+            <p style="margin:4px 0 12px;"><strong>Achrafieh, Beirut &mdash; Est. 1993</strong></p>
+            <p>Constructed in the 1980s and inaugurated in 1993, this multi-level complex includes the church, diocesan halls, offices, clergy residences, youth and scout centers, Sunday school rooms, and parking â€” serving hundreds of families every week.</p>
+            <p>The 2020 Beirut Port explosion caused significant structural damage. Partial repairs were made, but critical work â€” including construction halted since 2019 â€” remains undone to this day.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>More Than a Building</h2>
+          <p>Within the walls of these churches, the life of the community unfolds every single week.</p>
+        </div>
+        <div class="impact-grid">
+          <div class="impact-item"><strong>Worship</strong>Liturgy in the ancient Syriac language â€” the tongue of Christ</div>
+          <div class="impact-item"><strong>Family</strong>Baptisms, weddings, and funerals celebrated in faith</div>
+          <div class="impact-item"><strong>Youth</strong>Scouts, Sunday school, and parish activities for the next generation</div>
+          <div class="impact-item"><strong>Community</strong>A 500-person Grand Hall serving celebrations, gatherings, and humanitarian outreach</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTORATION NEEDS -->
+    <section id="needs" class="section section-dark">
+      <div class="container">
+        <div class="section-title">
+          <h2>What Needs to Be Done</h2>
+          <p>These are the specific, tangible repairs your donation will fund. Every item below is real and urgent.</p>
+        </div>
+        <div class="repair-grid">
+          <div class="repair-card">
+            <div class="repair-tag tag-urgent">Urgent &mdash; Saint Ephrem</div>
+            <h4>Structural &amp; Infrastructure</h4>
+            <ul>
+              <li>Repair of structural cracks causing active water leakage throughout the building</li>
+              <li>Full renovation of the elevator, in continuous operation since 1993 and now failing</li>
+              <li>Upgrade of the air conditioning system in the Grand Hall and Church</li>
+            </ul>
+          </div>
+          <div class="repair-card">
+            <div class="repair-tag tag-urgent">Urgent &mdash; Saint Ephrem</div>
+            <h4>Facility Improvements</h4>
+            <ul>
+              <li>Relocation of restrooms currently positioned at the entrance of the diocesan hall â€” the first thing visitors see, which is neither appropriate nor dignified</li>
+              <li>Full restoration of bathrooms serving the 500-person Grand Hall, now in dilapidated condition</li>
+            </ul>
+          </div>
+          <div class="repair-card">
+            <div class="repair-tag tag-important">Both Churches</div>
+            <h4>General Renovations</h4>
+            <ul>
+              <li>Painting works and iconography restoration</li>
+              <li>Repair and replacement of wooden pews, doors, and aluminum structures</li>
+              <li>Installation of a modern sound system and acoustic treatment</li>
+              <li>Rehabilitation of halls used for community activities and meetings</li>
+            </ul>
+          </div>
+          <div class="repair-card">
+            <div class="repair-tag tag-important">Halted Since 2019</div>
+            <h4>Unfinished Construction</h4>
+            <ul>
+              <li>Completion of the conference hall</li>
+              <li>Archive room construction and fit-out</li>
+              <li>Administrative offices fit-out</li>
+              <li>Work stopped due to Lebanon's economic crisis and the 2020 explosion â€” still incomplete today</li>
+            </ul>
+          </div>
+          <div class="repair-card">
+            <div class="repair-tag tag-community">Saint Peter &amp; Paul Cathedral</div>
+            <h4>Cathedral Restoration</h4>
+            <ul>
+              <li>Interior restoration work throughout the historic cathedral</li>
+              <li>Maintenance and improvement of church facilities</li>
+              <li>Rehabilitation of the community cemetery at Ramlet El Baida</li>
+            </ul>
+          </div>
+          <div class="repair-card">
+            <div class="repair-tag tag-community">Heritage &amp; Legacy</div>
+            <h4>Preserving What Matters</h4>
+            <ul>
+              <li>Restoration of sacred icons and liturgical artwork</li>
+              <li>Preservation of Syriac manuscripts and heritage materials</li>
+              <li>Ensuring spaces for future generations to worship, learn, and gather in faith</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BISHOP -->
+    <section id="bishop" class="section section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Message from the Archdiocese</h2>
+          <p>In the words of His Eminence Bishop Mor Clemis Daniel Malak Kourieh, Syriac Orthodox Archdiocese of Beirut.</p>
+        </div>
+        <div class="bishop-grid">
+          <div>
+            <img src="images/bishop.jpg" alt="His Eminence Bishop Mor Clemis Daniel Malak Kourieh" style="border-radius:24px;width:100%;margin-bottom:18px;"/>
+            <div class="church-box">
+              <img src="images/archdiocese-logo.jpg" alt="Syriac Orthodox Archdiocese of Beirut" style="border-radius:12px;margin-bottom:12px;max-height:90px;object-fit:contain;"/>
+              <p style="font-size:14px;color:var(--muted);margin:0;"><strong>His Eminence Bishop Mor Clemis Daniel Malak Kourieh</strong><br/>Syriac Orthodox Archdiocese of Beirut<br/>Under the Patriarchate of Antioch</p>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <blockquote class="blockquote">
+              <p>"The Syriac Arameans are the direct descendants of the indigenous inhabitants of Syria, Lebanon, Palestine, and Mesopotamia. With the dawn of Christianity they heard the divine message, accepted it, and founded their church â€” among the earliest Christian churches in the world, because according to Holy Scripture, 'the disciples were first called Christians in Antioch.'"</p>
+              <cite>â€” Bishop Mor Clemis Daniel Malak Kourieh</cite>
+            </blockquote>
+            <blockquote class="blockquote">
+              <p>"This church has suffered many challenges and hardships through the centuries â€” persecutions, displacements, schisms, and wars. It still struggles today to remain steadfast and alive, bearing witness to a glorious history and a great faith."</p>
+              <cite>â€” Bishop Mor Clemis Daniel Malak Kourieh</cite>
+            </blockquote>
+            <blockquote class="blockquote">
+              <p>"Any contribution, large or small, will be deeply appreciated and will remain a lasting blessing for this church and the generations who will continue to worship within it. We thank you for your kindness, your prayers, and your continued love for the Church."</p>
+              <cite>â€” Bishop Mor Clemis Daniel Malak Kourieh</cite>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERITAGE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>A Heritage Worth Preserving</h2>
+          <p>The Syriac Orthodox Church preserves the language of Christ â€” one of the oldest continuously spoken and written languages in the world.</p>
+        </div>
+        <div class="two-col">
+          <div class="church-box">
+            <img src="images/syriac-manuscript.jpg" alt="Ancient Syriac manuscript â€” New Testament, Eastern Syria, late 9th to 10th century" style="border-radius:16px;margin-bottom:16px;"/>
+            <p style="color:var(--muted);font-size:15px;margin:0;font-style:italic;">Ancient Syriac New Testament manuscript (MS 2080), Eastern Syria, late 9thâ€“10th century. The Syriac Orthodox Church has safeguarded this living tradition for two millennia.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div class="church-box">
+              <h3>The Language of Christ</h3>
+              <p style="color:var(--muted);margin:0;">Syriac â€” a dialect of Aramaic â€” was the language spoken by Jesus Christ and his disciples. The Syriac Orthodox Church has preserved it as both liturgical language and, for many, the mother tongue of their people. Nowhere else in the world is this living link to the first Christians more tangible.</p>
+            </div>
+            <div class="church-box">
+              <h3>A Global Community</h3>
+              <p style="color:var(--muted);margin:0 0 10px;">Approximately 6 million Syriac Orthodox faithful live across the globe â€” in India, the Americas, Europe, Australia, and the Middle East. The Archdiocese of Beirut connects this worldwide diaspora to its historic roots.</p>
+              <p style="color:var(--muted);margin:0;">Wherever this community settled, they built churches and monasteries, proud of their Syriac identity and determined to preserve it for future generations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video" class="section section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>See It for Yourself</h2>
+          <p>Watch the latest message from Beirut and see the work being done on the ground.</p>
+        </div>
+        <div style="display:flex;justify-content:center;">
+          <div style="width:100%;max-width:734px;">
+            <div id="fb-root"></div>
+            <div class="fb-video"
+              data-href="https://www.facebook.com/reel/1492856955569015"
+              data-width="734"
+              data-allowfullscreen="true"
+              data-autoplay="false">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPARENCY + EMAIL SIGNUP -->
+    <section class="section">
+      <div class="container">
+        <div class="two-col" style="align-items:center;">
+          <div>
+            <div class="section-title" style="margin-bottom:24px;">
+              <h2>How Your Donation Is Used</h2>
+              <p>Every dollar raised goes directly to church restoration and community spaces in Beirut.</p>
+            </div>
+            <div class="transparency-bar">
+              <div class="t-row">
+                <span class="t-label">Structural repairs &amp; infrastructure</span>
+                <div class="t-track"><div class="t-fill" style="width:45%"></div></div>
+                <span class="t-pct">45%</span>
+              </div>
+              <div class="t-row">
+                <span class="t-label">Interior restoration &amp; iconography</span>
+                <div class="t-track"><div class="t-fill" style="width:25%"></div></div>
+                <span class="t-pct">25%</span>
+              </div>
+              <div class="t-row">
+                <span class="t-label">Community &amp; facility spaces</span>
+                <div class="t-track"><div class="t-fill" style="width:20%"></div></div>
+                <span class="t-pct">20%</span>
+              </div>
+              <div class="t-row">
+                <span class="t-label">Cemetery &amp; heritage preservation</span>
+                <div class="t-track"><div class="t-fill" style="width:10%"></div></div>
+                <span class="t-pct">10%</span>
+              </div>
+            </div>
+          </div>
+          <div class="signup-box">
+            <h3>Stay Updated</h3>
+            <p>Receive restoration updates and see exactly how your donation is making a difference in Beirut.</p>
+            <div class="signup-form">
+              <input type="email" placeholder="Your email address" />
+              <button class="btn btn-primary">Keep Me Updated</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DONATE -->
+    <section id="donate" class="section section-alt">
+      <div class="container">
+        <div class="donate-box">
+          <h2>Stand with Beirut. Support the Church. Keep the Faith Alive.</h2>
+          <p>Your donation goes directly to restoring Saint Peter &amp; Paul Cathedral and Saint Ephrem Church â€” and to sustaining a community of faith that has endured for 2,000 years.</p>
+
+          <div class="donation-tiers">
+            <div class="tier" onclick="document.getElementById('embedded-donate').scrollIntoView({behavior:'smooth'})">
+              <h3>$100</h3>
+              <p>Repairs a broken window or replaces a damaged church door panel</p>
+            </div>
+            <div class="tier" onclick="document.getElementById('embedded-donate').scrollIntoView({behavior:'smooth'})">
+              <h3>$500</h3>
+              <p>Restores one pew or funds acoustic treatment in the Grand Hall</p>
+            </div>
+            <div class="tier" onclick="document.getElementById('embedded-donate').scrollIntoView({behavior:'smooth'})">
+              <h3>$1,000</h3>
+              <p>Contributes to the elevator renovation or structural crack repairs</p>
+            </div>
+            <div class="tier" onclick="document.getElementById('embedded-donate').scrollIntoView({behavior:'smooth'})">
+              <h3>$5,000+</h3>
+              <p>Funds a major milestone â€” iconography, a hall, or the conference room</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:16px;">
+            <a class="btn btn-gold" href="#embedded-donate">Open Donation Form</a>
+            <a class="btn btn-secondary" style="border-color:rgba(255,255,255,0.4);color:white;" href="mailto:info@middleeastchurchaid.com">Contact Us</a>
+          </div>
+
+          <div class="share-row">
+            <span style="font-size:14px;color:rgba(255,255,255,0.6);">Share this campaign:</span>
+            <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://middleeastchurchaid.com" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </a>
+            <a class="share-btn" href="https://wa.me/?text=Help%20restore%20historic%20Syriac%20Orthodox%20churches%20in%20Beirut%20%E2%80%94%20middleeastchurchaid.com" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a class="share-btn" href="https://twitter.com/intent/tweet?text=Help%20restore%20historic%20Syriac%20Orthodox%20churches%20in%20Beirut&url=https://middleeastchurchaid.com" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              X / Twitter
+            </a>
+          </div>
+
+          <div id="embedded-donate" style="margin-top:32px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:16px;">
+            <div style="position:relative;overflow:hidden;height:650px;width:100%;">
+              <iframe
+                title="Donation form powered by Zeffy"
+                style="position:absolute;border:0;top:0;left:0;bottom:0;right:0;width:100%;height:100%;border-radius:14px;"
+                src="https://www.zeffy.com/embed/donation-form/stand-with-beirut-help-rebuild-our-church"
+                allowpaymentrequest
+                allowTransparency="true">
+              </iframe>
+            </div>
+          </div>
+          <p style="margin-top:16px;color:rgba(255,255,255,0.45);font-size:14px;">All donations are processed securely through Zeffy. You will receive a receipt by email.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Middle East Church Aid</div>
+          <div class="small">Supporting the Syriac Orthodox Archdiocese of Beirut</div>
+          <div class="small" style="margin-top:8px;">middleeastchurchaid.com</div>
+        </div>
+        <div class="footer-section">
+          <h4>Campaign</h4>
+          <a href="#mission">Our Mission</a>
+          <a href="#churches">The Churches</a>
+          <a href="#needs">Restoration Needs</a>
+          <a href="#bishop">Bishop's Message</a>
+          <a href="#donate">Donate Now</a>
+        </div>
+        <div class="footer-section">
+          <h4>The Churches</h4>
+          <a href="#churches">Saint Peter &amp; Paul Cathedral, Msaytbeh</a>
+          <a href="#churches">Saint Ephrem Syriac Church, Achrafieh</a>
+          <a href="https://www.facebook.com/profile.php?id=100069375414311" target="_blank" rel="noopener">Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Middle East Church Aid &mdash; Syriac Orthodox Archdiocese of Beirut &mdash; All donations processed securely through Zeffy
+      </div>
+    </div>
+  </footer>
+
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        var fill = document.getElementById('progressFill');
+        if (fill) fill.style.width = '24%';
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>
+
+
