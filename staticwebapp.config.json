@@ -1,5 +1,12 @@
 {
-  "navigationFallback": {
-    "rewrite": "/index.html"
+  "routes": [
+    {
+      "route": "/",
+      "redirect": "https://www.middleeastchurchaid.com",
+      "statusCode": 301
+    }
+  ],
+  "globalHeaders": {
+    "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload"
   }
 }
